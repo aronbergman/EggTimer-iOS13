@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var timerDictionary = ["soft": 5, "medium": 7, "hard": 12]
+    
     @IBAction func hardnessSelected(_ sender: UIButton) {
-        print(sender.restorationIdentifier)
+        print(timerDictionary[sender.restorationIdentifier ?? "medium"])
     }
     
 }
