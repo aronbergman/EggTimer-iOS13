@@ -52,6 +52,6 @@ class ViewController: UIViewController {
     }
     
     func currencyCalculation(dividend: Int, didisor: Int) -> Float {
-       return Float((dividend * 100)/didisor)
+        return Float((dividend == 0 ? 1 : dividend * 100)/didisor)
     }
 }
