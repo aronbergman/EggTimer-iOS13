@@ -10,10 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var timerDictionary = ["soft": 5, "medium": 7, "hard": 12]
+    var timer = Timer()
+    var timerDictionary: [String: Int] = ["soft": 300, "medium": 450, "hard": 720]
+    var secondRemainding: Int = 60
     
     @IBAction func hardnessSelected(_ sender: UIButton) {
-        print(timerDictionary[sender.restorationIdentifier ?? "medium"])
+        
+        let hardness: String = sender.restorationIdentifier!
+        
+        timer.invalidate()
+
+        secondRemainding = timerDictionary[hardness]!
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: <#T##(Timer) -> Void#>)
     }
     
+    
+    
+    
+    @objc func updateTimer() {
+        if secondRemainding > 0 {
+            print("\(secondRemainding) seconds.")
+            secondRemainding -= 1
+        } else {
+            
+        }
+    }
 }
